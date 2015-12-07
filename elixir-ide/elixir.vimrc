@@ -41,69 +41,7 @@ set number
 " Map jj to ESC when in insert mode
 inoremap jj <esc>
 
-" Have CtrlP always open in the current window, turning
-" off the default behavior of avoiding windows created
-" by another plugin like NERDtree
-"
-" https://github.com/carlhuda/janus/issues/404
-" https://github.com/kien/ctrlp.vim/issues/28
-let g:ctrlp_dont_split = 'netrw'
-
-" Avoid concealing JSON syntax (double quotes, etc)
-let g:vim_json_syntax_conceal = 0
-
-filetype off
-
-" Turn on syntax highlighting.
-syntax enable
-" Turn on file type detection.
-filetype plugin indent on
-
-" Display incomplete commands.
-set showcmd
-" Display the mode you're in.
-set showmode
-
-" Intuitive backspacing.
-set backspace=indent,eol,start
-
-" Handle multiple buffers better.
-set hidden
-
-" Enhanced command line completion.
-set wildmenu
-" Complete files like a shell.
-set wildmode=list:longest
-
-" Show line numbers.
-set number
-" Show cursor position.
-set ruler
-
-" Highlight matches as you type.
-set incsearch
-" Highlight matches.
-set hlsearch
-" Case-insensitive searching.
-set ignorecase
-" But case-sensitive if expression contains a capital letter.
-set smartcase
-
-" Turn on line wrapping.
-set wrap
-" Show 3 lines of context around the cursor.
-set scrolloff=3
-
-" Set the terminal's title
-set title
-
-" No beeping.
-set visualbell
-
-" Don't make a backup before overwriting a file or write swap files
-set nobackup
-set nowritebackup
-set noswapfile
+let mapleader= "," " Remap Leader to ,
 
 " Global tab width.
 set tabstop=2
@@ -111,8 +49,38 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" Show the status line all the time
-set laststatus=2
+syntax enable       " turn on file syntax highlighting
+set hidden          " handle multiple buffers better.
+set backspace=indent,eol,start " Intuitive backspacing.
+set title           " set terminal title
+set wrap            " turn on line wrapping
+set number          " show line numbers
+set ruler           " show cursor position in bottom bar (vim-airline overrides)
+set cursorline      " visually show which line the cursor is on
+set autoindent      " match indentation level when adding new lines
+set showcmd         " show previous window command in bottom line
+set showmode        " display the current mode
+set laststatus=2    " Always display the last status
+set mouse=a         " Enable mouse in all 4 modes
+set noerrorbells visualbell t_vb= " disable audio/visual messages for failed commands
+set wildmenu        " Display menu when autocomplete hase more than 1 possible value
+set wildignore+=*.o,*.obj,.git,*.pyc,parts,*.egg-info,node_modules,tmp,venv,build,resources,vendor,tags " list of things to not tab complete
+set wildmode=list:longest " Complete files like a shell.
+set incsearch       " Highlight matches as you type.
+set hlsearch        " Highlight matches.
+set ignorecase      " Case-insensitive searching.
+set smartcase       " But case-sensitive if expression contains a capital letter.
+set lazyredraw      " Only redraw when necessary (makes macros execute faster)
+set showmatch       " highlight matching character for [{()}]
+set winwidth=84     " when going into a window or split it will then take at least 84 columns of width
+set winheight=5     " set winheight low to set winminheight
+set winminheight=5  " minimum height allowed for a window
+set winheight=999   " active window takes maximum height
+set shell=/bin/bash " use the proper path
+set scrolloff=3     " Show 3 lines of context around the cursor.
+set list listchars=tab:»\ ,trail:· " set characters for trailing white space and <Tab> characters
+highlight SpecialKey guifg=#FF003F " set color for hidden characters
+" set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')} " show kind of token under cursor in status line
 
 set t_Co=256 " Force 256 colors
 " in case t_Co alone doesn't work, add this as well:
@@ -128,13 +96,32 @@ set enc=utf-8
 set term=screen-256color
 let $TERM='screen-256color'
 
-" Set to show invisibles (tabs & trailing spaces) & their highlight color
-set list listchars=tab:»\ ,trail:·
+" Don't make a backup before overwriting a file or write swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Have CtrlP always open in the current window, turning
+" off the default behavior of avoiding windows created
+" by another plugin like NERDtree
+"
+" https://github.com/carlhuda/janus/issues/404
+" https://github.com/kien/ctrlp.vim/issues/28
+let g:ctrlp_dont_split = 'netrw'
+
+" Avoid concealing JSON syntax (double quotes, etc)
+let g:vim_json_syntax_conceal = 0
 
 " Airline Settings
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = "\ue0b0"
 let g:airline_right_sep = "\ue0b2"
+
+" Split lines (useful for correct spacing in javascript functions
+imap <C-c> <CR><Esc>O
+
+" Disable Execute Mode
+nmap Q <Nop>
 
 " capture current file path into clipboard
 function! CaptureFile()
