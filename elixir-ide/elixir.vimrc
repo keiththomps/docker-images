@@ -30,7 +30,7 @@ Plugin 'rstacruz/sparkup'
 Plugin 'bling/vim-airline'
 
 " install theme
-Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " All plugins are loaded, stop Vundle
 call vundle#end()         " required
@@ -56,7 +56,6 @@ set title           " set terminal title
 set wrap            " turn on line wrapping
 set number          " show line numbers
 set ruler           " show cursor position in bottom bar (vim-airline overrides)
-set cursorline      " visually show which line the cursor is on
 set autoindent      " match indentation level when adding new lines
 set showcmd         " show previous window command in bottom line
 set showmode        " display the current mode
@@ -88,10 +87,9 @@ set t_Co=256 " Force 256 colors
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
 
-let base16colorspace=256  " Access colors present in 256 colorspace
 set t_ut= "improve screen clearning by using the background color
 set background=dark
-colorscheme base16-ocean
+colorscheme solarized
 set enc=utf-8
 set term=screen-256color
 let $TERM='screen-256color'
