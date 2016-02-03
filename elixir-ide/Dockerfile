@@ -1,6 +1,6 @@
-FROM keiththomps/elixir
+FROM keiththomps/elixir:1.2
 MAINTAINER Keith Thompson "me@keiththomps.com"
-ENV LAST_UPDATED 2015-12-11
+ENV LAST_UPDATED 2016-02-02
 
 ENV EDITOR vim
 
