@@ -1,6 +1,6 @@
 FROM keiththomps/elixir-ide:1.2
 MAINTAINER Keith Thompson "me@keiththomps.com"
-ENV LAST_UPDATED 2016-02-18
+ENV LAST_UPDATED 2016-03-25
 
 ENV NODE_VERSION v5.6.0
 ENV NPM_VERSION 3
@@ -27,4 +27,8 @@ RUN apk add --no-cache curl make gcc g++ binutils-gold python linux-headers paxc
 RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
 
 # Add phoenix specific silver searcher ignore file
-COPY agignore.phoenix ~/.agignore
+COPY agignore.phoenix /root/.agignore
+
+# Update Hex  and install new Hex info when launching the ide
+RUN mix local.hex --force
+RUN mix hex.info

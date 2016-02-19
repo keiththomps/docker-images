@@ -1,6 +1,6 @@
 FROM msaraiva/elixir-dev
 MAINTAINER Keith Thompson "me@keiththomps.com"
-ENV LAST_UPDATED 2016-02-17
+ENV LAST_UPDATED 2016-03-25
 
 ENV EDITOR vim
 
