@@ -21,13 +21,14 @@ Plugin 'lukaszb/vim-web-indent'
 Plugin 'cakebaker/scss-syntax.vim'
 
 " install utility packages
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'rstacruz/sparkup'
-Plugin 'bling/vim-airline'
 
 " install theme
 Plugin 'altercation/vim-colors-solarized'
@@ -98,6 +99,12 @@ let $TERM='screen-256color'
 set nobackup
 set nowritebackup
 set noswapfile
+
+" Natural split movement
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Have CtrlP always open in the current window, turning
 " off the default behavior of avoiding windows created
