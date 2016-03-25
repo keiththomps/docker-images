@@ -39,9 +39,6 @@ filetype plugin indent on " required
 syntax enable
 set number
 
-" Map jj to ESC when in insert mode
-inoremap jj <esc>
-
 let mapleader= "," " Remap Leader to ,
 
 " Global tab width.
