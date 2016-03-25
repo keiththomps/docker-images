@@ -115,9 +115,9 @@ let g:ctrlp_dont_split = 'netrw'
 let g:vim_json_syntax_conceal = 0
 
 " Airline Settings
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = "\ue0b0"
-let g:airline_right_sep = "\ue0b2"
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ""
+let g:airline_right_sep = ""
 
 " Split lines (useful for correct spacing in javascript functions
 imap <C-c> <CR><Esc>O
