@@ -4,7 +4,7 @@ ENV LAST_UPDATED 2016-03-25
 
 WORKDIR /root
 
-RUN apk --update add bash vim tmux git-bash-completion the_silver_searcher && \
+RUN apk --update add bash vim make tmux git-bash-completion the_silver_searcher && \
     rm -rf /var/cache/apk/*
 
 RUN mkdir -p /root/.vim/bundle
